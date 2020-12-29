@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Película</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    
+      <ion-item *ngIf="pelicula">
+        <ion-input required type="text" placeholder="Título" [(ngModel)]="pelicula.estreno"></ion-input>
+      </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="savePelicula()">Guardar</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+    <ion-fab-button color="danger" routerLink="/home" routerDirection="forward" (click)="onRemove(peliculaId)">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

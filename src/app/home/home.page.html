@@ -1,20 +1,48 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Películas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let pelicula of peliculas ">
+      <ion-item lines="inset" button [routerLink]="['/admin', pelicula.id]" item-icon-right>
+        <ion-label>
+          {{pelicula.estreno}}
+        </ion-label>
+        
+      
+      </ion-item>
+    <ion-button expand="block" (click)="obtenerPelicula(pelicula)" >Añadir a favoritas</ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="onRemove(item)" color="secondary">
+          <ion-icon name="star" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  
+  <div class="container">
+    <ion-button expand="block" color="success" disable="true" (click)="send()">Confirmar</ion-button>
   </div>
+  
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/admin" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" slot="fixed">
+    <ion-fab-button routerLink="/fav" routerDirection="forward" >
+      <ion-icon name="heart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  
 </ion-content>
+

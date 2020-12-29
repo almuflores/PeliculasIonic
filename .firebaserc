@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "peliculas-7da36": {
+      "hosting": {
+        "app": [
+          "peliculas-7da36"
+        ]
+      }
+    }
+  }
+}

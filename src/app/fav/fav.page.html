@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Películas favoritas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor = "let favorita of favoritas">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{favorita.estreno}}</ion-card-title>
+      </ion-card-header>
+      <ion-icon name="trash-bin-outline"(click)="borrarFav(favorita)" size="large" >
+      </ion-icon>
+    </ion-card>
+    </div>
+</ion-content>
